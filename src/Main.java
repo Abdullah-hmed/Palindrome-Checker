@@ -3,18 +3,24 @@ public class Main {
     public static void main(String[] args){
         Scanner input = new Scanner(System.in);
         
-        System.out.print("Enter a Word: ");
         
-        String word = input.nextLine();
-        word = word.toLowerCase().trim().replaceAll("\\s", ""); //Converts word into lovercase and removes all the spaces before, within and after the word
-        
-        String rev = Palindrome(word);
-        
-        
-        System.out.println("Reversed Word: "+rev);
-        
-        System.out.println("Palindrome Status: "+PalindromeChecker(word,rev));
-        
+        while(true){
+            System.out.print("Press 'q' to quit\nEnter a Word: ");
+            
+            String word = input.nextLine();
+            word = word.toLowerCase().trim().replaceAll("\\s", ""); //Converts word into lovercase and removes all the spaces before, within and after the word
+            
+            if(word.equals("q")){
+                break;
+            }
+            
+            String rev = Palindrome(word); //variable contains the reverse of the inputted word
+
+
+            System.out.println("Reversed Word: "+rev);
+
+            System.out.println("Palindrome Status: "+PalindromeChecker(word,rev)+"\n");
+        }
     }
     
     public static boolean PalindromeChecker(String word,String rev){ // This method checks if word is palindrome or not
